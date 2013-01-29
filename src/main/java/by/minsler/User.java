@@ -32,4 +32,9 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getGreeting() {
+        if (name.length() == 0) return "";
+        return "Welcome to JSF application with ajax, " + name;
+    }
 }

@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>login page</title>
 </h:head>
@@ -12,14 +14,18 @@
         <table>
             <tr>
                 <td>Name</td>
-                <td><h:inputText value="#{user.name}"/></td>
+                <td><p:inputText id="name" value="#{user.name}" required="true"/></td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><h:inputSecret value="#{user.password}"/></td>
+                <td><p:password id="password" value="#{user.password}"/>
+                </td>
             </tr>
         </table>
-        <p><h:commandButton value="Login" action="welcome"/></p>
+        <p><h:commandButton value="Login">
+            <f:ajax execute="name password" render="out"/>
+        </h:commandButton></p>
+        <h:outputText id="out" value="#{user.greeting}"/>
     </h:form>
 </h:body>
 </html>
