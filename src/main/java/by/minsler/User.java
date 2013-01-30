@@ -3,6 +3,7 @@ package by.minsler;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * User: dzmitry.misiuk
@@ -16,6 +17,18 @@ public class User implements Serializable {
 
     private String name;
     private String password;
+    private Locale locale;
+
+    public User() {
+    }
+
+    public Locale getLocale() {
+        return locale;
+    }
+
+    public void setLocale(Locale locale) {
+        this.locale = locale;
+    }
 
     public String getName() {
         return name;

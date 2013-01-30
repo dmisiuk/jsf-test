@@ -2,3 +2,5 @@ welcome=Апликацыя jsf вiтае Вас
 login=Iмя карыстальнiка
 password=Пароль
 loginButton=Увайсцi
+currentScore=Ваш лик роуны {0}.
+next=Наступны

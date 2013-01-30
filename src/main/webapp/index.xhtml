@@ -5,6 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+
 <h:head>
     <title>login page</title>
 </h:head>
@@ -31,5 +32,24 @@
         <p><p:commandButton value="#{msgs.logoutButton}"/></p>
         <h:outputText id="out" value="#{user.greeting}"/>
     </h:form>
+
+    <h:form>
+        <hr/>
+        <p>
+            <h:outputFormat value="#{msgs.currentScore}">
+                <f:param value="#{quizBean.score}"/>
+            </h:outputFormat>
+        </p>
+
+        <p>#{quizBean.currentProblem.list}</p>
+
+        <p>
+            #{quizBean.answer}
+            <h:inputText value="#{quizBean.answer}"/>
+        </p>
+
+        <p><h:commandButton value="${msgs.next}"/></p>
+    </h:form>
+
 </h:body>
 </html>
