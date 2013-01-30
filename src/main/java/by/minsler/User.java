@@ -34,7 +34,7 @@ public class User implements Serializable {
     }
 
     public String getGreeting() {
-        if (name.length() == 0) return "";
+        if (name == null || name.length() == 0) return "";
         return "Welcome to JSF application with ajax, " + name;
     }
 }

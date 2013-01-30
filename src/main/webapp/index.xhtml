@@ -25,6 +25,8 @@
         <p><h:commandButton value="Login">
             <f:ajax execute="name password" render="out"/>
         </h:commandButton></p>
+
+        <p><p:commandButton value="Login in new pagae" action="welcome"/></p>
         <h:outputText id="out" value="#{user.greeting}"/>
     </h:form>
 </h:body>
