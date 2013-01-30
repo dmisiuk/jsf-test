@@ -51,5 +51,11 @@
         <p><h:commandButton value="${msgs.next}"/></p>
     </h:form>
 
+    <hr/>
+    <p>
+        <h:outputFormat value="#{msgs.yourBrowser}">
+            <f:param value="#{header['User-Agent']}"/>
+        </h:outputFormat>
+    </p>
 </h:body>
 </html>
