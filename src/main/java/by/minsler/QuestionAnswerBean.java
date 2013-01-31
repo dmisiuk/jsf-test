@@ -55,6 +55,14 @@ public class QuestionAnswerBean implements Serializable {
         return tries;
     }
 
+    public int getCurrentProblem() {
+        return currentProblem;
+    }
+
+    public void setCurrentProblem(int currentProblem) {
+        this.currentProblem = currentProblem;
+    }
+
     public String startOverAction() {
         System.out.println("start over " + tries);
         Collections.shuffle(problems);
@@ -94,5 +102,10 @@ public class QuestionAnswerBean implements Serializable {
         currentProblem++;
         tries = 0;
         answer = "";
+    }
+
+    public String getSkipOutcome() {
+        if (currentProblem < problems.size() - 1) return "question";
+        else return "done";
     }
 }
