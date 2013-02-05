@@ -56,6 +56,18 @@
             <artifactId>primefaces</artifactId>
             <version>3.4.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>glass-x</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>flick</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -83,7 +95,7 @@
                 <artifactId>tomcat-maven-plugin</artifactId>
                 <version>1.1</version>
                 <configuration>
-                    <path>/</path>
+                    <path>/new</path>
                     <!-- for embedded -->
                     <port>9090</port>
                 </configuration>

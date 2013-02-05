@@ -14,6 +14,7 @@
 </h:head>
 <h:body>
     <h1>Question page</h1>
+    <h:graphicImage library="images" name="question.jpg" style="border: aqua solid"/>
 
     <p>#{qaBean.question}</p>
 
@@ -26,6 +27,7 @@
     <h:link outcome="#{qaBean.skipOutcome}" value="Skip">
         <f:param name="q" value="#{qaBean.currentProblem + 1}"/>
     </h:link>
+
 
 </h:body>
 </html>

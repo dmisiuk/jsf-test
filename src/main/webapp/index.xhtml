@@ -10,19 +10,33 @@
     <title>login page</title>
 </h:head>
 <h:body>
+    <h:panelGrid columns="2">
+        <h:form>
+            <h:commandLink action="#{localeChanger.belorussianAction}">
+                <h:graphicImage value="/resources/images/belarus.jpg"/>
+            </h:commandLink>
+            <h:commandLink action="#{localeChanger.englishAction}">
+                <h:graphicImage value="/resources/images/english.jpg"/>
+            </h:commandLink>
+        </h:form>
+    </h:panelGrid>
+
+
     <h3>Please enter your name and email</h3>
     <h:form>
-        <table>
-            <tr>
-                <td>#{msgs.login}:</td>
-                <td><p:inputText id="name" value="#{user.name}" required="true"/></td>
-            </tr>
-            <tr>
-                <td>${msgs.password}:</td>
-                <td><p:password id="password" value="#{user.password}"/>
-                </td>
-            </tr>
-        </table>
+        <div style="border: solid">
+            <table>
+                <tr>
+                    <td>#{msgs.login}:</td>
+                    <td><p:inputText id="name" value="#{user.name}" required="true"/></td>
+                </tr>
+                <tr>
+                    <td>${msgs.password}:</td>
+                    <td><p:password id="password" value="#{user.password}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <p><h:commandButton value="#{msgs.loginButton}" id="loginButton">
             <f:ajax execute="name password" render="out"/>
         </h:commandButton></p>
@@ -57,5 +71,31 @@
             <f:param value="#{header['User-Agent']}"/>
         </h:outputFormat>
     </p>
+
+    <!--<h:outputLink value="http://www.google.com">-->
+    <!--<h:graphicImage value="/resources/images/google.jpg"/>-->
+    <!--</h:outputLink>-->
+    <!--<hr/>-->
+    <h:form>
+        <p:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+            <h:outputText value="Active:"/>
+            <p:selectBooleanCheckbox value="#{activeBean.active}"/>
+
+            <h:outputText value="Colors"/>
+
+            <p:selectManyCheckbox value="#{activeBean.selectedColors}" layout="pageDirection">
+                <f:selectItems value="#{activeBean.colors}"/>
+            </p:selectManyCheckbox>
+
+            <h:outputText value="Mobile phone"/>
+            <p:selectOneRadio value="#{activeBean.selectedPhone}" layout="pageDirection">
+                <f:selectItems value="#{activeBean.phones}"
+                               var="phone"
+                               itemLabel="#{phone.toUpperCase()}"
+                               itemValue="#{phone}"/>
+            </p:selectOneRadio>
+        </p:panelGrid>
+    </h:form>
 </h:body>
 </html>
