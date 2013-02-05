@@ -35,6 +35,13 @@ public class User implements Serializable {
     }
 
     public void setName(String name) {
+        if (name == null) {
+            throw new RuntimeException("name cannot be null");
+        }
+        if (name.trim().isEmpty()) {
+            throw new RuntimeException("name cannot be empty");
+        }
+
         this.name = name;
     }
 

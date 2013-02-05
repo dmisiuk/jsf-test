@@ -9,9 +9,13 @@
 <h:head>
     <title>login page</title>
 </h:head>
+<h:outputStylesheet library="css" value="main.css"/>
+
 <h:body>
     <h:panelGrid columns="2">
         <h:form>
+
+
             <h:commandLink action="#{localeChanger.belorussianAction}">
                 <h:graphicImage value="/resources/images/belarus.jpg"/>
             </h:commandLink>
@@ -21,31 +25,29 @@
         </h:form>
     </h:panelGrid>
 
-
     <h3>Please enter your name and email</h3>
-    <h:form>
-        <div style="border: solid">
-            <table>
-                <tr>
-                    <td>#{msgs.login}:</td>
-                    <td><p:inputText id="name" value="#{user.name}" required="true"/></td>
-                </tr>
-                <tr>
-                    <td>${msgs.password}:</td>
-                    <td><p:password id="password" value="#{user.password}"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <p><h:commandButton value="#{msgs.loginButton}" id="loginButton">
-            <f:ajax execute="name password" render="out"/>
-        </h:commandButton></p>
+    <h:form id="form2">
+        <h:panelGrid columns="3">
 
-        <p><p:commandButton value="#{msgs.loginButton}" action="welcome"/></p>
+
+            <h:outputText value="#{msgs.login}"/>
+            <p:inputText id="name2" required="true" label="name"/>
+            <p:message id="nameMessage" for="name2"/>
+
+            <h:outputText value="#{msgs.password}"/>
+            <p:inputText id="password2" required="true" label="password"/>
+            <p:message id="passwordMessage" for="password2" display="text"/>
+
+
+        </h:panelGrid>
+
+
+        <p><p:commandButton value="#{msgs.loginButton}" action="welcome" update="form2"/></p>
 
         <p><p:commandButton value="#{msgs.logoutButton}"/></p>
         <h:outputText id="out" value="#{user.greeting}"/>
     </h:form>
+
 
     <h:form>
         <hr/>
@@ -95,7 +97,22 @@
                                itemLabel="#{phone.toUpperCase()}"
                                itemValue="#{phone}"/>
             </p:selectOneRadio>
+
+            <h:outputText value="car"/>
+            <p:selectOneRadio layout="pageDirection">
+                <f:selectItem itemLabel="ford" itemDescription="Ford Motors" itemValue="ford" itemDisabled="true"/>
+                <f:selectItem itemLabel="opel" itemDescription="General Motors" itemValue="opel" itemDisabled="false"/>
+                <f:selectItem itemLabel="mazda"
+                              itemDescription="General Motors"
+                              itemValue="mazda"
+                              itemDisabled="false"
+                        />
+                <f:selectItem noSelectionOption="true" itemLabel="nothing"/>
+            </p:selectOneRadio>
         </p:panelGrid>
+        <p:commandButton value="submit"/>
     </h:form>
+
+
 </h:body>
 </html>
