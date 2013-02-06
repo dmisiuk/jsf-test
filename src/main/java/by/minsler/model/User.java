@@ -15,7 +15,7 @@ public class User implements Serializable {
     private String lastName;
     private Integer age;
     private String sex;
-    private boolean active;
+    private boolean editable;
 
     public User() {
     }
@@ -26,7 +26,7 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.age = age;
         this.sex = sex;
-        this.active = active;
+        this.editable = active;
     }
 
     public String getFirstName() {
@@ -61,12 +61,12 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isEditable() {
+        return editable;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setEditable(boolean editable) {
+        this.editable = editable;
     }
 }
 

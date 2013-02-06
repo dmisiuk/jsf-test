@@ -13,7 +13,7 @@
     </ui:define>
 
     <ui:define name="windowTitle">
-        #{msgs.mars}
+        users
     </ui:define>
 
     <ui:define name="content">
@@ -29,41 +29,46 @@
                     <f:facet name="header">
                         Active
                     </f:facet>
-                    <h:selectBooleanCheckbox value="#{user.active}" onchange="submit()" immediate="true"/>
+                    <h:selectBooleanCheckbox value="#{user.editable}" onchange="submit()" immediate="true"/>
                 </h:column>
                 <h:column headerClass="columnHeader">
                     <f:facet name="header">
                         First Name
                     </f:facet>
-                    <h:inputText value="#{user.firstName}" disabled="#{not user.active}"/>
+                    <h:outputText value="#{user.firstName}" rendered="#{not user.editable}"/>
+                    <h:inputText value="#{user.firstName}" rendered="#{user.editable}"/>
                 </h:column>
                 <h:column headerClass="columnHeader">
                     <f:facet name="header">
                         Last Name
                     </f:facet>
-                    #{user.lastName}
+                    <h:outputText value="#{user.lastName}" rendered="#{not user.editable}"/>
+                    <h:inputText value="#{user.lastName}" rendered="#{user.editable}"/>
                 </h:column>
 
                 <h:column headerClass="columnHeader">
                     <f:facet name="header">
                         Age
                     </f:facet>
-                    <h:selectOneMenu disabled="#{not user.active}">
+                    <h:outputText value="#{user.age}" rendered="#{not user.editable}"/>
+                    <h:selectOneMenu rendered="#{user.editable}">
                         <f:selectItem itemLabel="#{user.age}" itemValue="#{user.age}"/>
                     </h:selectOneMenu>
+
                 </h:column>
 
                 <h:column headerClass="columnHeader">
                     <f:facet name="header">
                         Sex
                     </f:facet>
-                    <h:selectOneMenu value="#{user.sex}" disabled="#{not user.active}">
-                        <f:selectItem itemLabel="female" itemValue="female"/>
-                        <f:selectItem itemLabel="male" itemValue="male"/>
+                    <h:outputText value="#{user.sex}" rendered="#{not user.editable}"/>
+                    <h:selectOneMenu value="#{user.sex}" rendered="#{user.editable}">
+                        <f:selectItems value="#{sexs}" var="sex" itemLabel="#{sex}" itemValue="#{sex}"/>
                     </h:selectOneMenu>
-                    #{user.sex}
                 </h:column>
             </h:dataTable>
+
+            <h:commandButton value="Submit"/>
         </h:form>
 
         <hr/>

@@ -47,7 +47,18 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/locales.faces-config.xml,/WEB-INF/navigation.faces-config.xml</param-value>
+        <param-value>
+            /WEB-INF/locales.faces-config.xml,/WEB-INF/navigation.faces-config.xml,/WEB-INF/beans.faces-config.xml
+        </param-value>
     </context-param>
+
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>by.minsler.CharacterEncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
 
 </web-app>

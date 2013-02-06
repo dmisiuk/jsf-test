@@ -3,7 +3,7 @@ package by.minsler;
 import by.minsler.model.User;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  * Time: 2:53 PM
  */
 @ManagedBean(name = "usersBean")
-@ViewScoped
+@SessionScoped
 public class UsersBean implements Serializable {
 
     private List<User> users;
