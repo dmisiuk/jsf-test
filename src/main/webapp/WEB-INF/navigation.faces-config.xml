@@ -93,7 +93,6 @@
 
     <navigation-rule>
         <from-view-id>/success.xhtml.xhtml</from-view-id>
-
         <navigation-case>
             <from-outcome>success</from-outcome>
             <to-view-id>/success.xhtml</to-view-id>
@@ -116,15 +115,26 @@
             <from-outcome>mars</from-outcome>
             <to-view-id>/mars.xhtml</to-view-id>
         </navigation-case>
+    </navigation-rule>
 
+    <navigation-rule>
         <navigation-case>
             <from-outcome>saturn</from-outcome>
             <to-view-id>/saturn.xhtml</to-view-id>
         </navigation-case>
+    </navigation-rule>
 
+    <navigation-rule>
         <navigation-case>
             <from-outcome>mainLayout</from-outcome>
             <to-view-id>/template/mainLayout.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>users</from-outcome>
+            <to-view-id>/users.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 

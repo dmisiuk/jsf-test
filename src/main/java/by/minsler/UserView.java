@@ -12,14 +12,14 @@ import java.util.Locale;
  */
 @ManagedBean
 @SessionScoped
-public class User implements Serializable {
+public class UserView implements Serializable {
     private static final long serialVersionUID = -7794187246192485775L;
 
     private String name;
     private String password;
     private Locale locale;
 
-    public User() {
+    public UserView() {
     }
 
     public Locale getLocale() {
