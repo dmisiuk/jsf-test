@@ -17,40 +17,54 @@
     </ui:define>
 
     <ui:define name="content">
-        <h:dataTable id="userTable"
-                     value="#{usersBean.users}"
-                     var="user"
-                     bgcolor="pink"
-                     border="0"
-                     rowClasses="oddColumn,evenColumn">
-            <f:facet name="caption">Users in table:</f:facet>
-            <h:column headerClass="columnHeader">
-                <f:facet name="header">
-                    First Name
-                </f:facet>
-                #{user.firstName}
-            </h:column>
-            <h:column headerClass="columnHeader">
-                <f:facet name="header">
-                    Last Name
-                </f:facet>
-                #{user.lastName}
-            </h:column>
+        <h:form>
+            <h:dataTable id="userTable"
+                         value="#{usersBean.users}"
+                         var="user"
+                         bgcolor="pink"
+                         border="0"
+                         rowClasses="oddColumn,evenColumn">
+                <f:facet name="caption">Users in table:</f:facet>
+                <h:column headerClass="columnHeader">
+                    <f:facet name="header">
+                        Active
+                    </f:facet>
+                    <h:selectBooleanCheckbox value="#{user.active}" onchange="submit()" immediate="true"/>
+                </h:column>
+                <h:column headerClass="columnHeader">
+                    <f:facet name="header">
+                        First Name
+                    </f:facet>
+                    <h:inputText value="#{user.firstName}" disabled="#{not user.active}"/>
+                </h:column>
+                <h:column headerClass="columnHeader">
+                    <f:facet name="header">
+                        Last Name
+                    </f:facet>
+                    #{user.lastName}
+                </h:column>
 
-            <h:column headerClass="columnHeader">
-                <f:facet name="header">
-                    Age
-                </f:facet>
-                #{user.age}
-            </h:column>
+                <h:column headerClass="columnHeader">
+                    <f:facet name="header">
+                        Age
+                    </f:facet>
+                    <h:selectOneMenu disabled="#{not user.active}">
+                        <f:selectItem itemLabel="#{user.age}" itemValue="#{user.age}"/>
+                    </h:selectOneMenu>
+                </h:column>
 
-            <h:column headerClass="columnHeader">
-                <f:facet name="header">
-                    Sex
-                </f:facet>
-                #{user.sex}
-            </h:column>
-        </h:dataTable>
+                <h:column headerClass="columnHeader">
+                    <f:facet name="header">
+                        Sex
+                    </f:facet>
+                    <h:selectOneMenu value="#{user.sex}" disabled="#{not user.active}">
+                        <f:selectItem itemLabel="female" itemValue="female"/>
+                        <f:selectItem itemLabel="male" itemValue="male"/>
+                    </h:selectOneMenu>
+                    #{user.sex}
+                </h:column>
+            </h:dataTable>
+        </h:form>
 
         <hr/>
 
