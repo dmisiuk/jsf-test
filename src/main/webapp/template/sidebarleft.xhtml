@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+
+<ui:composition>
+
+    <ui:composition>
+        <div>
+            <h3>sidebar</h3>
+            <ul>
+                <h:form>
+                    <li><h:commandLink value="Main page" action="mainLayout"/></li>
+                    <li><h:commandLink value="#{msgs.mars}" action="mars"/></li>
+                    <li><h:commandLink value="#{msgs.saturn}" action="saturn"/></li>
+                </h:form>
+            </ul>
+        </div>
+    </ui:composition>
+</ui:composition>
+</body>
+</html>

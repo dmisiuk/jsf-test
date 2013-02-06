@@ -4,3 +4,21 @@
     font-style: italic;
     color: red;
 }
+
+div#heading {
+    background-color: grey;
+
+}
+
+div#sidebarleft {
+    background-color: yellow;
+    float: left;
+    width: 20%;
+}
+
+div#content {
+    background-color: #f0ffff;
+    float: right;
+    text-align: left;
+    width: 80%;
+}
