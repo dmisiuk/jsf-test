@@ -17,59 +17,76 @@
     </ui:define>
 
     <ui:define name="content">
+
         <h:form>
-            <h:dataTable id="userTable"
-                         value="#{usersBean.users}"
-                         var="user"
-                         bgcolor="pink"
-                         border="0"
-                         rowClasses="oddColumn,evenColumn">
-                <f:facet name="caption">Users in table:</f:facet>
-                <h:column headerClass="columnHeader">
-                    <f:facet name="header">
-                        Active
-                    </f:facet>
-                    <h:selectBooleanCheckbox value="#{user.editable}" onchange="submit()" immediate="true"/>
-                </h:column>
-                <h:column headerClass="columnHeader">
-                    <f:facet name="header">
-                        First Name
-                    </f:facet>
-                    <h:outputText value="#{user.firstName}" rendered="#{not user.editable}"/>
-                    <h:inputText value="#{user.firstName}" rendered="#{user.editable}"/>
-                </h:column>
-                <h:column headerClass="columnHeader">
-                    <f:facet name="header">
-                        Last Name
-                    </f:facet>
-                    <h:outputText value="#{user.lastName}" rendered="#{not user.editable}"/>
-                    <h:inputText value="#{user.lastName}" rendered="#{user.editable}"/>
-                </h:column>
+            <div style="overflow:auto;height: 200px; width: 100%">
+                <h:dataTable id="userTable"
+                             value="#{usersBean.modelUsers}"
+                             var="user"
+                             bgcolor="pink"
+                             border="0"
+                             rowClasses="oddColumn,evenColumn">
+                    <f:facet name="caption">Users in table:</f:facet>
 
-                <h:column headerClass="columnHeader">
-                    <f:facet name="header">
-                        Age
-                    </f:facet>
-                    <h:outputText value="#{user.age}" rendered="#{not user.editable}"/>
-                    <h:selectOneMenu rendered="#{user.editable}">
-                        <f:selectItem itemLabel="#{user.age}" itemValue="#{user.age}"/>
-                    </h:selectOneMenu>
+                    <h:column headerClass="columnHeader">
+                        <f:facet name="header">
+                            <h:outputText value="Number by model"/>
+                        </f:facet>
+                        #{usersBean.modelUsers.rowIndex + 1}
+                    </h:column>
 
-                </h:column>
+                    <h:column headerClass="columnHeader">
+                        <f:facet name="header">
+                            Active
+                        </f:facet>
+                        <h:selectBooleanCheckbox value="#{user.editable}" onchange="submit()" immediate="true"/>
+                    </h:column>
+                    <h:column headerClass="columnHeader">
+                        <f:facet name="header">
+                            First Name
+                        </f:facet>
+                        <h:outputText value="#{user.firstName}" rendered="#{not user.editable}"/>
+                        <h:inputText value="#{user.firstName}" rendered="#{user.editable}"/>
+                    </h:column>
+                    <h:column headerClass="columnHeader">
+                        <f:facet name="header">
+                            Last Name
+                        </f:facet>
+                        <h:outputText value="#{user.lastName}" rendered="#{not user.editable}"/>
+                        <h:inputText value="#{user.lastName}" rendered="#{user.editable}"/>
+                    </h:column>
 
-                <h:column headerClass="columnHeader">
-                    <f:facet name="header">
-                        Sex
-                    </f:facet>
-                    <h:outputText value="#{user.sex}" rendered="#{not user.editable}"/>
-                    <h:selectOneMenu value="#{user.sex}" rendered="#{user.editable}">
-                        <f:selectItems value="#{sexs}" var="sex" itemLabel="#{sex}" itemValue="#{sex}"/>
-                    </h:selectOneMenu>
-                </h:column>
-            </h:dataTable>
+                    <h:column headerClass="columnHeader">
+                        <f:facet name="header">
+                            Age
+                        </f:facet>
+                        <h:outputText value="#{user.age}" rendered="#{not user.editable}"/>
+                        <h:selectOneMenu rendered="#{user.editable}">
+                            <f:selectItem itemLabel="#{user.age}" itemValue="#{user.age}"/>
+                        </h:selectOneMenu>
+
+                    </h:column>
+
+                    <h:column headerClass="columnHeader">
+                        <f:facet name="header">
+                            Sex
+                        </f:facet>
+                        <h:outputText value="#{user.sex}" rendered="#{not user.editable}"/>
+                        <h:selectOneMenu value="#{user.sex}" rendered="#{user.editable}">
+                            <f:selectItems value="#{sexs}" var="sex" itemLabel="#{sex}" itemValue="#{sex}"/>
+                        </h:selectOneMenu>
+                    </h:column>
+                    <h:column headerClass="columnHeader">
+                        <h:commandButton value="Delete" action="#{usersBean.removeUser(user)}"
+                                         disabled="#{ not user.editable}"/>
+                    </h:column>
+
+                </h:dataTable>
+            </div>
 
             <h:commandButton value="Submit"/>
         </h:form>
+
 
         <hr/>
 
