@@ -21,7 +21,8 @@
                      value="#{usersBean.users}"
                      var="user"
                      bgcolor="pink"
-                     border="0">
+                     border="0"
+                     rowClasses="oddColumn,evenColumn">
             <f:facet name="caption">Users in table:</f:facet>
             <h:column headerClass="columnHeader">
                 <f:facet name="header">
@@ -35,7 +36,38 @@
                 </f:facet>
                 #{user.lastName}
             </h:column>
+
+            <h:column headerClass="columnHeader">
+                <f:facet name="header">
+                    Age
+                </f:facet>
+                #{user.age}
+            </h:column>
+
+            <h:column headerClass="columnHeader">
+                <f:facet name="header">
+                    Sex
+                </f:facet>
+                #{user.sex}
+            </h:column>
         </h:dataTable>
+
+        <hr/>
+
+        <table>
+            <tr>
+                <td class="columnHeader">var status</td>
+                <td class="columnHeader">First Name</td>
+                <td class="columnHeader">Last Name</td>
+            </tr>
+            <ui:repeat value="#{usersBean.users}" var="user" offset="0" varStatus="status">
+                <tr>
+                    <td>#{status.index + 1}</td>
+                    <td>#{user.firstName}</td>
+                    <td>#{user.lastName}</td>
+                </tr>
+            </ui:repeat>
+        </table>
     </ui:define>
 </ui:composition>
 </body>

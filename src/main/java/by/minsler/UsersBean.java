@@ -21,9 +21,10 @@ public class UsersBean implements Serializable {
 
     public UsersBean() {
         users = new ArrayList<User>();
-        users.add(new User("dzmitry", "misiuk"));
-        users.add(new User("vasia", "pupkin"));
-        users.add(new User("kiryl", "bokiy"));
+        users.add(new User("dzmitry", "misiuk", 25, "male"));
+        users.add(new User("vasia", "pupkin", 30, "male"));
+        users.add(new User("kiryl", "bokiy", 25, "male"));
+        users.add(new User("natallia", "misiuk", 28, "female"));
     }
 
     public List<User> getUsers() {

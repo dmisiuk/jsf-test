@@ -20,9 +20,17 @@ div#content {
     background-color: #f0ffff;
     float: right;
     text-align: left;
-    width: 80%;
+    width: 78%;
 }
 
 .columnHeader {
     font-weight: bold;
+}
+
+.oddColumn {
+    background-color: #f5f5dc;
+}
+
+.evenColumn {
+    background-color: #ffe4c4;
 }
