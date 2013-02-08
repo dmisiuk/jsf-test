@@ -19,7 +19,17 @@ public class UserView implements Serializable {
     private String password;
     private Locale locale;
 
+    private String email;
+
     public UserView() {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Locale getLocale() {
@@ -56,5 +66,10 @@ public class UserView implements Serializable {
     public String getGreeting() {
         if (name == null || name.length() == 0) return "";
         return "Welcome to JSF application with ajax, " + name;
+    }
+
+    public String register() {
+        System.out.println("register");
+        return null;
     }
 }
