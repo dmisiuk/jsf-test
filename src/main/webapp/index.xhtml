@@ -31,18 +31,23 @@
 
 
             <h:outputText value="#{msgs.login}"/>
-            <p:inputText id="name2" required="true" label="name"/>
+            <p:inputText id="name2" label="name" required="true">
+                <f:validateRequired/>
+            </p:inputText>
+
             <p:message id="nameMessage" for="name2"/>
 
             <h:outputText value="#{msgs.password}"/>
-            <p:inputText id="password2" required="true" label="password"/>
+            <p:inputText id="password2" label="password" required="true">
+                <f:validateRequired/>
+            </p:inputText>
             <p:message id="passwordMessage" for="password2" display="text"/>
 
 
         </h:panelGrid>
 
 
-        <p><p:commandButton value="#{msgs.loginButton}" action="welcome" update="form2"/></p>
+        <p><p:commandButton value="#{msgs.loginButton}" action="welcome" update="form2" ajax="false"/></p>
 
         <p><p:commandButton value="#{msgs.logoutButton}"/></p>
         <h:outputText id="out" value="#{userView.greeting}"/>
