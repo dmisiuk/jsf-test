@@ -15,23 +15,12 @@
     <h:outputStylesheet library="css" value="main.css"/>
 
     <h:body>
+        <util:locale-changer/>
+
         <h1>#{msgs.loginPageTitle}</h1>
         <h:outputText value="#{msgs.mainPageName}"/>
 
-        <h:panelGrid columns="2">
-            <h:form>
-
-
-                <h:commandLink action="#{localeChanger.setLocale('be')}">
-                    <h:graphicImage value="/resources/images/belarus.jpg"/>
-                </h:commandLink>
-                <h:commandLink action="#{localeChanger.setLocale('en')}">
-                    <h:graphicImage value="/resources/images/english.jpg"/>
-                </h:commandLink>
-            </h:form>
-        </h:panelGrid>
-
-
+        <br/>
         <h:link value="listener" outcome="listener"/>
 
         <util:debug header="#{msgs.requestHeader}: Main page"/>
