@@ -17,15 +17,31 @@ public class LocaleChanger implements Serializable {
 
     private static final long serialVersionUID = -4332223792831494742L;
 
+    private Locale currentLocale;
+
+    public LocaleChanger() {
+        currentLocale = Locale.getDefault();
+    }
+
     public String englishAction() {
         FacesContext context = FacesContext.getCurrentInstance();
-        context.getViewRoot().setLocale(Locale.ENGLISH);
+        currentLocale = Locale.ENGLISH;
+        context.getViewRoot().setLocale(currentLocale);
         return null;
     }
 
     public String belorussianAction() {
         FacesContext context = FacesContext.getCurrentInstance();
-        context.getViewRoot().setLocale(new Locale("be"));
+        currentLocale = new Locale("be");
+        context.getViewRoot().setLocale(currentLocale);
         return null;
+    }
+
+    public Locale getCurrentLocale() {
+        return currentLocale;
+    }
+
+    public void setCurrentLocale(Locale currentLocale) {
+        this.currentLocale = currentLocale;
     }
 }

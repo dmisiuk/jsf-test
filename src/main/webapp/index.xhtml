@@ -5,133 +5,142 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{localeChanger.currentLocale}">
 
-<h:head>
-    <title>login page</title>
-</h:head>
-<h:outputStylesheet library="css" value="main.css"/>
+    <h:head>
+        <title>#{msgs.loginPageTitle}</title>
+    </h:head>
+    <h:outputStylesheet library="css" value="main.css"/>
 
-<h:body>
-    <h:panelGrid columns="2">
-        <h:form>
+    <h:body>
+        <h:outputText value="#{msgs.mainPageName}"/>
 
-
-            <h:commandLink action="#{localeChanger.belorussianAction}">
-                <h:graphicImage value="/resources/images/belarus.jpg"/>
-            </h:commandLink>
-            <h:commandLink action="#{localeChanger.englishAction}">
-                <h:graphicImage value="/resources/images/english.jpg"/>
-            </h:commandLink>
-        </h:form>
-    </h:panelGrid>
-
-    <h3>Please enter your name and email</h3>
-    <h:form id="form2">
-        <h:panelGrid columns="3">
+        <h:panelGrid columns="2">
+            <h:form>
 
 
-            <h:outputText value="#{msgs.login}"/>
-            <p:inputText id="name2" label="name" required="true">
-                <f:validateRequired/>
-            </p:inputText>
-
-            <p:message id="nameMessage" for="name2"/>
-
-            <h:outputText value="#{msgs.password}"/>
-            <p:inputText id="password2" label="password" required="true">
-                <f:validateRequired/>
-            </p:inputText>
-            <p:message id="passwordMessage" for="password2" display="text"/>
-
-
+                <h:commandLink action="#{localeChanger.belorussianAction}">
+                    <h:graphicImage value="/resources/images/belarus.jpg"/>
+                </h:commandLink>
+                <h:commandLink action="#{localeChanger.englishAction}">
+                    <h:graphicImage value="/resources/images/english.jpg"/>
+                </h:commandLink>
+            </h:form>
         </h:panelGrid>
 
-
-        <p><p:commandButton value="#{msgs.loginButton}" action="welcome" update="form2" ajax="false"/></p>
-
-        <p><p:commandButton value="#{msgs.logoutButton}"/></p>
-        <h:outputText id="out" value="#{userView.greeting}"/>
-    </h:form>
+        <h:link value="listener" outcome="listener"/>
 
 
-    <h1>Form with validation by jsf</h1>
-
-    <h:form>
-        <p:inputText id="email" required="true" label="email" requiredMessage="Please enter your email address."
-                     validatorMessage="Please insert valid format" value="#{userView.email}">
-            <f:validateRegex
-                    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
-        </p:inputText>
-        <p:message for="email"/>
-        <p:commandButton value="Send email" action="#{userView.register}" ajax="false"/>
-
-    </h:form>
+        <h3>Please enter your name and email</h3>
+        <h:form id="form2">
+            <h:panelGrid columns="3">
 
 
-    <h:form>
+                <h:outputText value="#{msgs.login}"/>
+                <p:inputText id="name2" label="name" required="true">
+                    <f:validateRequired/>
+                </p:inputText>
+
+                <p:message id="nameMessage" for="name2"/>
+
+                <h:outputText value="#{msgs.password}"/>
+                <p:inputText id="password2" label="password" required="true">
+                    <f:validateRequired/>
+                </p:inputText>
+                <p:message id="passwordMessage" for="password2" display="text"/>
+
+
+            </h:panelGrid>
+
+
+            <p><p:commandButton value="#{msgs.loginButton}" action="welcome" update="form2" ajax="false"/></p>
+
+            <p><p:commandButton value="#{msgs.logoutButton}"/></p>
+            <h:outputText id="out" value="#{userView.greeting}"/>
+        </h:form>
+
+
+        <h1>Form with validation by jsf</h1>
+
+        <h:form>
+            <p:inputText id="email" required="true" label="email" requiredMessage="Please enter your email address."
+                         validatorMessage="Please insert valid format" value="#{userView.email}">
+                <f:validateRegex
+                        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+            </p:inputText>
+            <p:message for="email"/>
+            <p:commandButton value="Send email" action="#{userView.register}" ajax="false"/>
+
+        </h:form>
+
+
+        <h:form>
+            <hr/>
+            <p>
+                <h:outputFormat value="#{msgs.currentScore}">
+                    <f:param value="#{quizBean.score}"/>
+                </h:outputFormat>
+            </p>
+
+            <p>#{quizBean.currentProblem.list}</p>
+
+            <p>
+                #{quizBean.answer}
+                <h:inputText value="#{quizBean.answer}"/>
+            </p>
+
+            <p><h:commandButton value="${msgs.next}"/></p>
+        </h:form>
+
         <hr/>
         <p>
-            <h:outputFormat value="#{msgs.currentScore}">
-                <f:param value="#{quizBean.score}"/>
+            <h:outputFormat value="#{msgs.yourBrowser}">
+                <f:param value="#{header['User-Agent']}"/>
             </h:outputFormat>
         </p>
 
-        <p>#{quizBean.currentProblem.list}</p>
+        <!--<h:outputLink value="http://www.google.com">-->
+        <!--<h:graphicImage value="/resources/images/google.jpg"/>-->
+        <!--</h:outputLink>-->
+        <!--<hr/>-->
+        <h:form>
+            <p:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-        <p>
-            #{quizBean.answer}
-            <h:inputText value="#{quizBean.answer}"/>
-        </p>
+                <h:outputText value="Active:"/>
+                <p:selectBooleanCheckbox value="#{activeBean.active}"/>
 
-        <p><h:commandButton value="${msgs.next}"/></p>
-    </h:form>
+                <h:outputText value="Colors"/>
 
-    <hr/>
-    <p>
-        <h:outputFormat value="#{msgs.yourBrowser}">
-            <f:param value="#{header['User-Agent']}"/>
-        </h:outputFormat>
-    </p>
+                <p:selectManyCheckbox value="#{activeBean.selectedColors}" layout="pageDirection">
+                    <f:selectItems value="#{activeBean.colors}"/>
+                </p:selectManyCheckbox>
 
-    <!--<h:outputLink value="http://www.google.com">-->
-    <!--<h:graphicImage value="/resources/images/google.jpg"/>-->
-    <!--</h:outputLink>-->
-    <!--<hr/>-->
-    <h:form>
-        <p:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                <h:outputText value="Mobile phone"/>
+                <p:selectOneRadio value="#{activeBean.selectedPhone}" layout="pageDirection">
+                    <f:selectItems value="#{activeBean.phones}"
+                                   var="phone"
+                                   itemLabel="#{phone.toUpperCase()}"
+                                   itemValue="#{phone}"/>
+                </p:selectOneRadio>
 
-            <h:outputText value="Active:"/>
-            <p:selectBooleanCheckbox value="#{activeBean.active}"/>
-
-            <h:outputText value="Colors"/>
-
-            <p:selectManyCheckbox value="#{activeBean.selectedColors}" layout="pageDirection">
-                <f:selectItems value="#{activeBean.colors}"/>
-            </p:selectManyCheckbox>
-
-            <h:outputText value="Mobile phone"/>
-            <p:selectOneRadio value="#{activeBean.selectedPhone}" layout="pageDirection">
-                <f:selectItems value="#{activeBean.phones}"
-                               var="phone"
-                               itemLabel="#{phone.toUpperCase()}"
-                               itemValue="#{phone}"/>
-            </p:selectOneRadio>
-
-            <h:outputText value="car"/>
-            <p:selectOneRadio layout="pageDirection">
-                <f:selectItem itemLabel="ford" itemDescription="Ford Motors" itemValue="ford" itemDisabled="true"/>
-                <f:selectItem itemLabel="opel" itemDescription="General Motors" itemValue="opel" itemDisabled="false"/>
-                <f:selectItem itemLabel="mazda"
-                              itemDescription="General Motors"
-                              itemValue="mazda"
-                              itemDisabled="false"
-                        />
-                <f:selectItem noSelectionOption="true" itemLabel="nothing"/>
-            </p:selectOneRadio>
-        </p:panelGrid>
-        <p:commandButton value="submit"/>
-    </h:form>
+                <h:outputText value="car"/>
+                <p:selectOneRadio layout="pageDirection">
+                    <f:selectItem itemLabel="ford" itemDescription="Ford Motors" itemValue="ford" itemDisabled="true"/>
+                    <f:selectItem itemLabel="opel" itemDescription="General Motors" itemValue="opel"
+                                  itemDisabled="false"/>
+                    <f:selectItem itemLabel="mazda"
+                                  itemDescription="General Motors"
+                                  itemValue="mazda"
+                                  itemDisabled="false"
+                            />
+                    <f:selectItem noSelectionOption="true" itemLabel="nothing"/>
+                </p:selectOneRadio>
+            </p:panelGrid>
+            <p:commandButton value="submit"/>
+        </h:form>
 
 
-</h:body>
+    </h:body>
+</f:view>
 </html>
+

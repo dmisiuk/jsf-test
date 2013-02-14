@@ -26,6 +26,7 @@
     <!--</navigation-case>-->
     <!--</navigation-rule>-->
 
+
     <navigation-rule>
 
         <from-view-id>/question.xhtml</from-view-id>
@@ -135,6 +136,14 @@
         <navigation-case>
             <from-outcome>users</from-outcome>
             <to-view-id>/users.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>listener</from-outcome>
+            <to-view-id>/listener.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
