@@ -4,8 +4,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:util="http://java.sun.com/jsf/composite/util"
       xmlns:p="http://primefaces.org/ui">
 <f:view locale="#{localeChanger.currentLocale}">
+
 
     <h:head>
         <title>#{msgs.loginPageTitle}</title>
@@ -13,23 +15,26 @@
     <h:outputStylesheet library="css" value="main.css"/>
 
     <h:body>
+        <h1>#{msgs.loginPageTitle}</h1>
         <h:outputText value="#{msgs.mainPageName}"/>
 
         <h:panelGrid columns="2">
             <h:form>
 
 
-                <h:commandLink action="#{localeChanger.belorussianAction}">
+                <h:commandLink action="#{localeChanger.setLocale('be')}">
                     <h:graphicImage value="/resources/images/belarus.jpg"/>
                 </h:commandLink>
-                <h:commandLink action="#{localeChanger.englishAction}">
+                <h:commandLink action="#{localeChanger.setLocale('en')}">
                     <h:graphicImage value="/resources/images/english.jpg"/>
                 </h:commandLink>
             </h:form>
         </h:panelGrid>
 
+
         <h:link value="listener" outcome="listener"/>
 
+        <util:debug header="#{msgs.requestHeader}: Main page"/>
 
         <h3>Please enter your name and email</h3>
         <h:form id="form2">

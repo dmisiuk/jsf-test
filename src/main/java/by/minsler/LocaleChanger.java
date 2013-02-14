@@ -23,16 +23,9 @@ public class LocaleChanger implements Serializable {
         currentLocale = Locale.getDefault();
     }
 
-    public String englishAction() {
+    public String setLocale(String localeName) {
         FacesContext context = FacesContext.getCurrentInstance();
-        currentLocale = Locale.ENGLISH;
-        context.getViewRoot().setLocale(currentLocale);
-        return null;
-    }
-
-    public String belorussianAction() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        currentLocale = new Locale("be");
+        currentLocale = new Locale(localeName);
         context.getViewRoot().setLocale(currentLocale);
         return null;
     }

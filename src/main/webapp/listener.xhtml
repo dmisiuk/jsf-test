@@ -5,8 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core"
-        >
+      xmlns:util="http://java.sun.com/jsf/composite/util"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 
 <f:view locale="#{localeChanger.currentLocale}">
 
@@ -20,7 +20,7 @@
             <h:panelGrid columns="2">
 
                 <p:outputLabel value="#{msgs.description}"/>
-                <p:inputText value="#{company.description}"/>
+                <p:inputText value="#{company.description}" required="true"/>
 
                 <p:outputLabel value="Active:"/>
                 <p:selectBooleanCheckbox value="#{company.active}">
@@ -42,6 +42,9 @@
             <h:outputText value="#{company.description}"/>
         </h:form>
         <hr/>
+
+
+        <util:debug header="#{msgs.requestHeader}: Listener page"/>
 
 
     </h:body>
