@@ -25,7 +25,6 @@ public class Company implements Serializable {
     @ManagedProperty("#{localeChanger}")
     private LocaleChanger localeChanger;
 
-    private String selectedCountry;
     private List<Locale> countries;
 
     private boolean active;
@@ -36,12 +35,10 @@ public class Company implements Serializable {
 
     @PostConstruct
     public void init() {
-        active = true;
         countries = Arrays.asList(new Locale[]{
                 Locale.ENGLISH,
                 new Locale("be")
         });
-        selectedCountry = localeChanger.getCurrentLocale().getLanguage();
     }
 
     public boolean isActive() {
@@ -73,11 +70,10 @@ public class Company implements Serializable {
     }
 
     public String getSelectedCountry() {
-        return selectedCountry;
+        return localeChanger.getCurrentLocale().getLanguage();
     }
 
     public void setSelectedCountry(String selectedCountry) {
-        this.selectedCountry = selectedCountry;
         localeChanger.setCurrentLocale(new Locale(selectedCountry));
     }
 
