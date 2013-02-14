@@ -8,19 +8,21 @@
       xmlns:p="http://primefaces.org/ui"
         >
 
+
 <composite:interface>
     <composite:attribute name="name" required="true"/>
     <composite:attribute name="email" required="true"/>
 </composite:interface>
 
 <composite:implementation>
+
     <p:tabView id="tabView">
 
-        <p:tab id="tab1" title="User name">
+        <p:tab id="tab1" title="#{msgs.username}">
             <p:outputLabel value="#{cc.attrs.name}"/>
         </p:tab>
 
-        <p:tab id="tab2" title="User email">
+        <p:tab id="tab2" title="#{msgs.email}">
             <p:outputLabel value="#{cc.attrs.email}"/>
         </p:tab>
 
