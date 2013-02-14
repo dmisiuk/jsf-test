@@ -10,6 +10,7 @@
 
 <f:view locale="#{localeChanger.currentLocale}">
 
+
     <h:head>
         <title>Simple JSF Facelets page</title>
     </h:head>
@@ -24,25 +25,37 @@
             </h:panelGroup>
         </p:panelGrid>
 
+
         <h:form>
-            <p:panelGrid columns="3">
-                <p:outputLabel value="Username:"/>
-                <p:inputText id="username" value="#{loginBean.username}"/>
-                <p:message for="username" display="text"/>
+            <p:commandButton id="loginBtn" value="Login" type="button"/>
 
-                <p:outputLabel value="Email:"/>
-                <p:inputText id="email" value="#{loginBean.email}"/>
-                <p:message for="email" display="text"/>
 
-                <p:commandButton value="Send" ajax="false"/>
-            </p:panelGrid>
+            <p:overlayPanel for="loginBtn">
+
+                <style type="text/css">
+                    .ui-panelgrid tr, .ui-panelgrid td {
+                        border: 0 !important;
+                    }
+                </style>
+                <p:panelGrid columns="3">
+                    <p:outputLabel value="Username:"/>
+                    <p:inputText id="username" value="#{loginBean.username}" immediate="true"/>
+                    <p:message for="username" display="text"/>
+
+                    <p:outputLabel value="Email:"/>
+                    <p:inputText id="email" value="#{loginBean.email}" immediate="true"/>
+                    <p:message for="email" display="text"/>
+
+                    <p:commandButton value="Send" ajax="false"/>
+                </p:panelGrid>
+            </p:overlayPanel>
+
         </h:form>
 
 
         <h1>please check your company</h1>
         <h:form id="form">
-            <h:panelGrid columns="2">
-
+            <h:panelGrid columns="2" style="">
                 <p:outputLabel value="#{msgs.description}"/>
                 <p:inputText value="#{company.description}" required="true"/>
 

@@ -34,3 +34,7 @@ div#content {
 .evenColumn {
     background-color: #ffe4c4;
 }
+
+.ui-panelgrid tr, .ui-panelgrid td {
+    border: 0 !important;
+}
