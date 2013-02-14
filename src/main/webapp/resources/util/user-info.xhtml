@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+        >
+
+<composite:interface>
+    <composite:attribute name="name" required="true"/>
+    <composite:attribute name="email" required="true"/>
+</composite:interface>
+
+<composite:implementation>
+    <p:tabView id="tabView">
+
+        <p:tab id="tab1" title="User name">
+            <p:outputLabel value="#{cc.attrs.name}"/>
+        </p:tab>
+
+        <p:tab id="tab2" title="User email">
+            <p:outputLabel value="#{cc.attrs.email}"/>
+        </p:tab>
+
+    </p:tabView>
+
+</composite:implementation>
+
+</html>

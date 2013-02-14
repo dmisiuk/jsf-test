@@ -8,7 +8,7 @@
       xmlns:h="http://java.sun.com/jsf/html">
 
 <composite:interface>
-    <composite:attribute name="flag" required="false"/>
+    <composite:attribute name="belflag" default="#{resource['images:belarus.jpg']}"/>
 </composite:interface>
 
 <composite:implementation>
@@ -16,7 +16,7 @@
         <h:form>
             <h:commandLink action="#{localeChanger.setLocale('be')}">
                 <h:graphicImage
-                        value="#{cc.attrs.flag != null? cc.attrs.flag: resource['images:belarus.jpg']}"/>
+                        value="#{cc.attrs.belflag}"/>
             </h:commandLink>
             <h:commandLink action="#{localeChanger.setLocale('en')}">
                 <h:graphicImage value="/resources/images/english.jpg"/>
