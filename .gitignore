@@ -7,3 +7,4 @@ target
 *.ipr
 *.iws
 atlassian-ide-plugin.xml
+rebel.xml

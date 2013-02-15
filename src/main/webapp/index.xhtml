@@ -16,7 +16,8 @@
 
     <h:body>
         <util:locale-changer/>
-        <util:user-info email="#{loginBean.username}" name="#{loginBean.email}"/>
+        <util:login username="#{loginBean.username}" email="#{loginBean.email}"/>
+        <util:user-info name="#{loginBean.username}" email="#{loginBean.email}"/>
 
         <h1>#{msgs.loginPageTitle}</h1>
         <h:outputText value="#{msgs.mainPageName}"/>

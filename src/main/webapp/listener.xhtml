@@ -15,6 +15,7 @@
         <title>Simple JSF Facelets page</title>
     </h:head>
 
+
     <h:body>
         <p:panelGrid columns="2">
             <h:panelGroup>
@@ -26,32 +27,7 @@
         </p:panelGrid>
 
 
-        <h:form>
-            <p:commandButton id="loginBtn" value="Login" type="button"/>
-
-
-            <p:overlayPanel for="loginBtn">
-
-                <style type="text/css">
-                    .ui-panelgrid tr, .ui-panelgrid td {
-                        border: 0 !important;
-                    }
-                </style>
-                <p:panelGrid columns="3">
-                    <p:outputLabel value="Username:"/>
-                    <p:inputText id="username" value="#{loginBean.username}" immediate="true"/>
-                    <p:message for="username" display="text"/>
-
-                    <p:outputLabel value="Email:"/>
-                    <p:inputText id="email" value="#{loginBean.email}" immediate="true"/>
-                    <p:message for="email" display="text"/>
-
-                    <p:commandButton value="Send" ajax="false"/>
-                </p:panelGrid>
-            </p:overlayPanel>
-
-        </h:form>
-
+        <util:login username="#{loginBean.username}" email="#{loginBean.email}"/>
 
         <h1>please check your company</h1>
         <h:form id="form">
